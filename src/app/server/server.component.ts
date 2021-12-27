@@ -6,5 +6,12 @@ import {Component} from '@angular/core'
 })
 
 export class ServerComponent{
-  
+  disabled=true;
+  constructor(){
+setTimeout(()=>this.disabled=false,2000)
+
+  }
+
+  serverId=10;
+  serverStatus='offline'
 }
