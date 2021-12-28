@@ -8,8 +8,8 @@ export class ServerComponent {
   
   serverId = 10;
   serverStatus = 'offline';
-
-  disabled = true;
+  ServerCreated=false;
+  disabled=true;
 
   newServerCreate = 'No server was created';
 
@@ -20,7 +20,14 @@ export class ServerComponent {
   }
 
   onAddnewServer() {
-    this.newServerCreate = 'Server got created';
+    if(this.Servername!=='')
+    {
+      this.ServerCreated=true;
+    }
+    else{
+      this.ServerCreated=false;
+    }
+    
   }
 
   onServername(event)
