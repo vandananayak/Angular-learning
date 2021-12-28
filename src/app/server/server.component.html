@@ -4,9 +4,12 @@
 
 <!-- string interpolation -->
 <p>{{ newServerCreate }}</p>
-<p>Server with ID {{ serverId }} is {{ serverStatus }}</p>
+<p>Server:{{Servername}} with ID {{ serverId }} is {{ serverStatus }}</p>
 
 
 <!-- event handler -->
 <input type="text" (input)="onServername($event)">
 <p>{{Servername}}</p>
+<!-- wherever you change the server name it effects on the 2 way binding -->
+<input type="text" [(ngModel)]="Servername">
+<p>This is 2 way data binding</p>
