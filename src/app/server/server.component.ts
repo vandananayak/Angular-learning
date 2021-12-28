@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class ServerComponent {
   
   serverId = 10;
-  serverStatus = 'offline';
+  serverStatus = Math.random()<0.5?'Online':'Offline';
   ServerCreated=false;
   disabled=true;
 
@@ -33,5 +33,10 @@ export class ServerComponent {
   onServername(event)
   {
     this.Servername=(<HTMLInputElement>event.target).value;
+  }
+
+  getColor()
+  {
+    return this.serverStatus==='Online'?"green":"red"
   }
 }
