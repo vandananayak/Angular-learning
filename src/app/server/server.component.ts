@@ -3,41 +3,44 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls:['./server.component.css']
+  styleUrls: ['./server.component.css'],
 })
 export class ServerComponent {
-  
-  serverId = 10;
-  serverStatus = Math.random()<0.5?'Online':'Offline';
-  ServerCreated=false;
-  disabled=true;
+  serverId: any = 10;
+  serverStatus: string = Math.random() < 0.5 ? 'Online' : 'Offline';
+  ServerCreated: boolean = false;
+  disabled: boolean = true;
 
-  newServerCreate = 'No server was created';
-
-  Servername='';
+  servername: string = '';
 
   constructor() {
     setTimeout(() => (this.disabled = false), 2000);
   }
 
-  onAddnewServer() {
-    if(this.Servername!=='')
-    {
-      this.ServerCreated=true;
+  onAddnewServer(): void {
+    if (this.servername !== '') {
+      this.ServerCreated = true;
+    } else {
+      this.ServerCreated = false;
     }
-    else{
-      this.ServerCreated=false;
-    }
-    
   }
 
-  onServername(event)
-  {
-    this.Servername=(<HTMLInputElement>event.target).value;
+  onServername(event) {
+    this.servername = (<HTMLInputElement>event.target).value;
   }
 
-  getColor()
-  {
-    return this.serverStatus==='Online'?"green":"red"
+  getColor(): object {
+    // return this.serverStatus==='Online'?"green":"red"
+    return { color: this.serverStatus === 'Online' ? 'green' : 'red' };
+  }
+
+  keyTyped(): void {
+    console.log(this.servername);
+  }
+
+  serverStatusClass(): object {
+    return {
+      Online: this.serverStatus === 'Online' ? 'Online' : 'Offline',
+    };
   }
 }

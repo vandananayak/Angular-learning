@@ -1,28 +1,16 @@
-<input type="text" [(ngModel)]="Servername" />
-<!-- <p>This is 2 way data binding</p> -->
 
-<!-- property binding -->
+<h3>Server</h3>
+<input type="text" [(ngModel)]="servername" (ngModelChange)="keyTyped()"/>
+
 <button [disabled]="disabled" (click)="onAddnewServer()">Add new server</button>
-
-<!-- string interpolation -->
-<p *ngIf="ServerCreated; else Noserver">
-  Server is created and the name is {{ Servername }}
+<p *ngIf="serverCreated; else noServer">
+  Server is created and the name is {{ Ssrvername }}
 </p>
 
 <ng-template #Noserver>
   <p>No server was created</p>
 </ng-template>
-<p
-  [ngClass]="{
-    Online: serverStatus == 'Online',
-    Offline: serverStatus == 'Offline'
-  }"
->
-  Server:{{ Servername }} with ID {{ serverId }} is
-  <span [ngStyle]="{ color: getColor() }">{{ serverStatus }}</span>
+<p [ngClass]="serverStatusClass()">
+  Server:{{ servername }} with ID {{ serverId }} is
+  <span [ngStyle]="getColor()">{{ serverStatus }}</span>
 </p>
-
-<!-- event handler -->
-<!-- <input type="text" (input)="onServername($event)">
-<p>{{Servername}}</p> -->
-<!-- wherever you change the server name it effects on the 2 way binding -->
