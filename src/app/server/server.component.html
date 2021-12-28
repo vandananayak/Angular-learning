@@ -1,18 +1,26 @@
-<input type="text" [(ngModel)]="Servername">
+<input type="text" [(ngModel)]="Servername" />
 <!-- <p>This is 2 way data binding</p> -->
 
 <!-- property binding -->
 <button [disabled]="disabled" (click)="onAddnewServer()">Add new server</button>
 
 <!-- string interpolation -->
-<p *ngIf="ServerCreated;else Noserver ">Server is created and the name is {{Servername}} </p>
+<p *ngIf="ServerCreated; else Noserver">
+  Server is created and the name is {{ Servername }}
+</p>
 
 <ng-template #Noserver>
   <p>No server was created</p>
 </ng-template>
-<p>Server:{{Servername}} with ID {{ serverId }} is 
-  <span [ngStyle]="{color:getColor()}">{{ serverStatus }}</span> </p>
-
+<p
+  [ngClass]="{
+    Online: serverStatus == 'Online',
+    Offline: serverStatus == 'Offline'
+  }"
+>
+  Server:{{ Servername }} with ID {{ serverId }} is
+  <span [ngStyle]="{ color: getColor() }">{{ serverStatus }}</span>
+</p>
 
 <!-- event handler -->
 <!-- <input type="text" (input)="onServername($event)">
