@@ -1,3 +1,12 @@
+
+<!-- property binding -->
 <button [disabled]="disabled" (click)="onAddnewServer()">Add new server</button>
+
+<!-- string interpolation -->
 <p>{{ newServerCreate }}</p>
 <p>Server with ID {{ serverId }} is {{ serverStatus }}</p>
+
+
+<!-- event handler -->
+<input type="text" (input)="onServername($event)">
+<p>{{Servername}}</p>

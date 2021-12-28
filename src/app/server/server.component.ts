@@ -5,8 +5,16 @@ import { Component } from '@angular/core';
   templateUrl: './server.component.html',
 })
 export class ServerComponent {
+  
+  serverId = 10;
+  serverStatus = 'offline';
+
   disabled = true;
+
   newServerCreate = 'No server was created';
+
+  Servername='';
+
   constructor() {
     setTimeout(() => (this.disabled = false), 2000);
   }
@@ -15,6 +23,8 @@ export class ServerComponent {
     this.newServerCreate = 'Server got created';
   }
 
-  serverId = 10;
-  serverStatus = 'offline';
+  onServername(event)
+  {
+    this.Servername=(<HTMLInputElement>event.target).value;
+  }
 }
