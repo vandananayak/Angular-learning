@@ -3,15 +3,12 @@
 <input type="text" [(ngModel)]="serverName" (ngModelChange)="keyTyped()"/>
 
 <button [disabled]="disabled" (click)="onAddnewServer()">Add new server</button>
-<!-- <p *ngIf="serverCreated; else noServer">
+<p *ngIf="serverCreated; else noServer">
   Server is created and the name is {{ serverName }}
 </p>
 
 <ng-template #noServer>
   <p>No server was created</p>
-</ng-template> -->
-<p [ngClass]="serverStatusClass()">
-  Server:{{ serverName }} with ID {{ serverId }} is
-  <span [ngStyle]="getColor()">{{ serverStatus }}</span>
-</p>
+</ng-template>
 
+<app-newserver *ngFor="let server of servers"></app-newserver>
