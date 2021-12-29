@@ -9,7 +9,7 @@ export class ServerComponent {
   disabled: boolean = true;
 
   serverName: string = '';
-  servers:any=['Testserver1','Testserver2'];
+  servers:any=[''];
 
   constructor() {
     setTimeout(() => (this.disabled = false), 2000);

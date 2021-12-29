@@ -11,4 +11,6 @@
   <p>No server was created</p>
 </ng-template>
 
-<app-newserver *ngFor="let server of servers"></app-newserver>
+<div *ngFor="let server of servers;let i=index">
+  <label>{{i+1}}</label><app-newserver ></app-newserver>
+</div>
