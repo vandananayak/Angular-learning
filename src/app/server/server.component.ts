@@ -8,25 +8,25 @@ import { Component } from '@angular/core';
 export class ServerComponent {
   serverId: any = 10;
   serverStatus: string = Math.random() < 0.5 ? 'Online' : 'Offline';
-  ServerCreated: boolean = false;
+  serverCreated: boolean = false;
   disabled: boolean = true;
 
-  servername: string = '';
+  serverName: string = '';
 
   constructor() {
     setTimeout(() => (this.disabled = false), 2000);
   }
 
   onAddnewServer(): void {
-    if (this.servername !== '') {
-      this.ServerCreated = true;
+    if (this.serverName !== '') {
+      this.serverCreated = true;
     } else {
-      this.ServerCreated = false;
+      this.serverCreated = false;
     }
   }
 
   onServername(event) {
-    this.servername = (<HTMLInputElement>event.target).value;
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 
   getColor(): object {
@@ -35,7 +35,7 @@ export class ServerComponent {
   }
 
   keyTyped(): void {
-    console.log(this.servername);
+    console.log(this.serverName);
   }
 
   serverStatusClass(): object {

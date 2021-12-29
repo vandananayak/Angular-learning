@@ -1,16 +1,17 @@
 
 <h3>Server</h3>
-<input type="text" [(ngModel)]="servername" (ngModelChange)="keyTyped()"/>
+<input type="text" [(ngModel)]="serverName" (ngModelChange)="keyTyped()"/>
 
 <button [disabled]="disabled" (click)="onAddnewServer()">Add new server</button>
-<p *ngIf="serverCreated; else noServer">
-  Server is created and the name is {{ Ssrvername }}
+<!-- <p *ngIf="serverCreated; else noServer">
+  Server is created and the name is {{ serverName }}
 </p>
 
-<ng-template #Noserver>
+<ng-template #noServer>
   <p>No server was created</p>
-</ng-template>
+</ng-template> -->
 <p [ngClass]="serverStatusClass()">
-  Server:{{ servername }} with ID {{ serverId }} is
+  Server:{{ serverName }} with ID {{ serverId }} is
   <span [ngStyle]="getColor()">{{ serverStatus }}</span>
 </p>
+
